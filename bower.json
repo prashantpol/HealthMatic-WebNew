@@ -1,0 +1,22 @@
+{
+  "name": "HealthMatic-web",
+  "authors": [
+    "prashant pol <prashantn.pol@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "boostrap#^3.3.7",
+    "angular": "^1.5.8"
+  }
+}
