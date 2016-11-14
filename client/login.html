@@ -1,0 +1,27 @@
+
+<div class="container" ng-controller="webctrl">
+    <div class="omb_login">
+        <!--<h5 class="omb_authTitle" style="padding-top:50px;">In order to continue you need to have a user account with some basic information.</h5>-->
+        <br /><br />
+        <h3 class="omb_authTitle " style="margin-top:-20px;">Login  </h3>
+         
+        <div class="row omb_row-sm-offset-3">
+            <div class="col-xs-12 col-sm-6">
+                    <h1>HealthMatic Login</h1>
+
+                    <input type="text" class="form-control" ng-model="user.email" placeholder="Email address" />
+                    <input type="text" class="form-control" ng-model="user.pwd" placeholder="Password">
+                    <button type="button" class="form-control" class="btn btn-success" ng-click="goLogin(user)">Login </button>
+            
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<script  src="/bower_components/angular/angular.min.js"></script>
+<script  src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script>
+
+<script  src="/src/app.js"></script>
+<script  src="/src/route.js"></script>

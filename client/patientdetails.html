@@ -1,0 +1,29 @@
+ <div class="col-lg-6 col-lg-offset-3">
+	<div class="panel panel-default">
+	  <div class="panel-body" style="padding: 0px">
+	  	
+	  	<table>
+	  		<tr>
+	  		
+	  		<td style="padding-right: 20px;padding-left: 20px;vertical-align: top;width: 70px" rowspan="11"><img src="/assets/images/male.png" width="70"></td>
+	  		<td class=" " style="border:1px solid #D3D3D3;border-top: none;border-right: none;height: 50px;padding-left: 20px;width: 100%">Name : {{selectedpatient.firstName}} &nbsp {{selectedpatient.lastName}}</td>
+	  			
+	  		</tr>
+	  		<tr><td class="tdright">Birthdate : {{selectedpatient.birthday}}</td> </tr>
+	  		<tr><td class="tdright">Gender : {{selectedpatient.gender}} </td></tr>
+	  		<tr><td class="tdright"> Weight : {{selectedpatient.weight}} </td></tr>
+	  		<tr><td class="tdright"> Height : {{selectedpatient.height}} </td></tr>
+	  		<tr><td class="tdright"> Blood Type : {{selectedpatient.bloodType}} </td></tr>
+	  		<tr><td class="tdright"> Marital Status : {{selectedpatient.maritalStatus}} </td></tr>
+
+	  		<tr><td class="tdright">Condition : {{selectedpatient.condition}} </td></tr>
+	  		<tr><td class="tdright"> Admission Date : {{selectedpatient.admissionDate}} </td></tr>
+	  		<tr><td class="tdright">Discharge Date : {{selectedpatient.dischargedDate}} </td></tr>
+
+	  		<tr><td style="border:1px solid #D3D3D3;border-bottom: none;border-right: none;height: 50px;padding-left: 20px">Address : {{selectedpatient.address.street}}  {{selectedpatient.address.city}},<br>
+	  		{{selectedpatient.address.province}} {{selectedpatient.address.zipCode}}</td></tr>
+
+	  	</table>
+	  </div>
+	</div>
+ </div>

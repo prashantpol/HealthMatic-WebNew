@@ -4,14 +4,22 @@ angular.module('webapp')
 	$urlRouterProvider.otherwise('/');
 
 	$stateProvider
-	.state('home',{
+	.state('login',{
 		url:'/',
-		templateUrl:'/client/home.html'
+		templateUrl:'/client/login.html'
+
+	}).state('patientlist',{
+		url:'/patientlist',
+		templateUrl:'/client/patientlist.html'
 
 	})
 	.state('about',{
 		url:'/about',
 		templateUrl:'/client/index2.html'
+
+	}).state('patientdetails',{
+		url:'/patientdetails',
+		templateUrl:'/client/patientdetails.html'
 
 	});
 
