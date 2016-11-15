@@ -29,6 +29,10 @@ angular.module('webapp')
 		url:'/doctorlist',
 		templateUrl:'/client/doctorlist.html'
 
+	}).state('nurselist',{
+		url:'/nurselist',
+		templateUrl:'/client/nurselist.html'
+
 	});
 
 }]);
