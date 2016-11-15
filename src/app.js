@@ -59,10 +59,13 @@ $scope.goPatientDetails=function(patient){
  };
 
 $scope.goAddPatient=function(add){
-alert();
+//alert();
   $state.go('addpatient');
 };
 
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').focus()
+});
 
 
 
