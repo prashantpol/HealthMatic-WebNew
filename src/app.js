@@ -8,7 +8,7 @@ if($rootScope.patient)
 }
 else
 {
-  $state.go('patientlist');
+ // $state.go('patientlist');
 }
 
  $scope.go = function(path) {
@@ -19,11 +19,15 @@ else
   $scope.goLogin=function (user) {
   	//alert();
   	console.log('login clicked');
-  	$state.go('patientlist');
+  	//$state.go('patientlist');
  	if(user.email==='test@gmail.com' && user.pwd==='test')
  	{
  	$state.go('patientlist');
  	}
+  else
+  {
+    $scope.errorlogin='Invalid Username and Password';
+  }
  	// body...
  };
  
@@ -44,7 +48,7 @@ $scope.loadPatient();
 
 $scope.goPatientDetails=function(patient){
 //animation 
-$scope.patientClass = 'patient-home';
+//$scope.patientClass = 'patient-home';
   $rootScope.patient=patient;
    $scope.selectedpatient=$rootScope.patient;
   if($rootScope.patient)
@@ -54,6 +58,10 @@ $scope.patientClass = 'patient-home';
 
  };
 
+$scope.goAddPatient=function(add){
+alert();
+  $state.go('addpatient');
+};
 
 
 
