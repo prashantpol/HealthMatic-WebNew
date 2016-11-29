@@ -33,6 +33,14 @@ angular.module('webapp')
 		url:'/nurselist',
 		templateUrl:'/client/nurselist.html'
 
+	}).state('patient',{
+		url:'/patient',
+		templateUrl:'/client/patient.html'
+
+	}).state('assignstaff',{
+		url:'/assignstaff',
+		templateUrl:'/client/assignstaff.html'
+
 	});
 
 }]);

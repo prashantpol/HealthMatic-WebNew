@@ -37,3 +37,27 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+<h1 style="padding-left :20px">Nurses</h1>
+
+<div class="col-lg-6 col-lg-offset-3" style="z-index: -1">
+
+<ul class="list-group" ng-repeat="nurse in nurseList | filter: {role:'nurse'} ">
+<a href="" >
+  <li class="list-group-item">
+
+  <table><tr>
+<td rowspan="3" style="padding-right: 20px"><img src="/assets/images/male.png" width="60"></td>
+<td style="text-align: top;">{{nurse.firstName}}&nbsp {{nurse.lastName}}</td>
+</tr>
+<tr><td class="secondline">Floor : {{nurse.floor}}</td></tr>
+
+</table>
+</li>
+</a>
+ 
+</ul> 
+</div>
+
+
+

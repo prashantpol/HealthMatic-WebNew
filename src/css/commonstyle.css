@@ -30,8 +30,33 @@ ul.dropdown-menu {
     behavior: url(PIE.htc); /* remove if you don't care about IE8 */
 }
 
-.type1 {
-    width: 80px;
-    height: 80px;
-    
+ 
+
+#exTab2 h3 {
+  
+ 
+  padding : 5px 15px;
 }
+
+
+.tags {
+   margin-bottom: 5px;
+} 
+
+.tags .tag {
+   display: inline-block;
+   margin-right: 5px;
+   font-size: 13px;
+}
+  
+.tag .close {
+   font-size: 14px;
+   margin-left: 5px;
+}
+ 
+ 
+
+
+
+
+

@@ -29,53 +29,39 @@
   </div><!-- /.container-fluid -->
 </nav>
 
+<h1 style="padding-left :20px">Patients</h1>
 
 <div class="col-lg-6 col-lg-offset-3" style="z-index: -1">
 
 <ul class="list-group" ng-repeat="patient in patientList">
-<a href="" ng-click="goPatientDetails(patient)">
-  <li class="list-group-item">
+<a href=""  ng-click="goPatientDetails(patient)">
+      <li class="list-group-item">
 
-  <table><tr>
-<td rowspan="3" style="padding-right: 20px"><img src="/assets/images/male.png" width="60"></td>
-<td style="text-align: top;">{{patient.firstName}}&nbsp {{patient.lastName}}</td>
-</tr>
-<tr><td class="secondline">{{patient.condition}}</td></tr>
+    <table><tr>
+    <td rowspan="3" style="padding-right: 20px"><img src="/assets/images/male.png" width="60"></td>
+    <td style="text-align: top;">
+    <a href=""  ng-click="goPatientDetails(patient)">
+{{patient.firstName}}&nbsp {{patient.lastName}}</a></td>
+    </tr>
+    <tr><td class="secondline">{{patient.condition}}</td></tr>
 
-</table>
-</li>
+    </table>
+    </li>
 </a>
  
 </ul> 
+</div>
  
 <!--  	<a href="" class="btn btn-success pull-right col-lg-3"  ng-click="goAddPatient('add')">Add</a>
  -->
+<div class="col-lg-6 col-lg-offset-3" style="margin-bottom: 200px">
+   <button type="button" class="btn btn-success pull-right col-lg-3" data-toggle="modal" data-target="#myModal">Add</button>
 
- <button type="button" class="btn btn-success pull-right col-lg-3" data-toggle="modal" data-target="#myModal">Add</button>
- 
-
- <div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Add Patient</h4>
-      </div>
-      <div class="modal-body">
-        <p>Add Form</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
 </div>
- 
-</div>
+<br><br>
 
+ 
+ 
 
 
 
