@@ -1,48 +1,133 @@
- <nav class="navbar navbar-default" style="background-color: #36A2EB;height: 80px">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#" ><table><tr><td><img src="/assets/images/d.png" width="40"> </td><td style="font-size: 18px;color:#fff">HealthMatic<br><span style="font-size: 12px">where heatlth matters</span></td></tr></table> </a>
+
+  <div class="row" style="margin-top: 20px">
+    <div class="col-xs-12 col-sm-8 col-md-12 col-lg-8 col-lg-offset-2">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Medicine</h3>
+          <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+        </div>
+        <div class="panel-body">
+
+        <div class="col-lg-6">
+
+                <div class="form-group">
+                  <input type="date" name="text" style="" id="pres_med" ng-model="patient.prescriptions.medicinename"  class="form-control input-sm" placeholder="Medicine Name">
+                </div>
+                 <div class="form-group">
+                  <input type="date" name="text" id="pres_dosage" ng-model="patient.prescriptions.dosage"  class="form-control input-sm" placeholder="Dosage">
+                </div>
+
+              <div class="form-group">
+                 <input type="date" name="text" id="pres_duration" ng-model="patient.prescriptions.duration"  class="form-control input-sm" placeholder="Duration">
+                </div>
+       </div>
+  
+       <div class="col-lg-6">
+                <table  border="1" style="border:1px; " cellspacing="10">
+                <tr><th style="padding: 10px">Medicine Name</th><th style="padding: 10px">Dosage</th><th style="padding: 10px">Duration</th></tr>
+                <tr><td style="padding: 5px;text-align: left;"> test</td>
+                <td style="padding: 5px;text-align: left;">2 days</td>
+                <td style="padding: 5px;text-align:left ">3 times</td>
+                </tr>
+
+                 <tr><td style="padding: 5px;text-align: left;"> test</td>
+                <td style="padding: 5px;text-align: left;">2 days</td>
+                <td style="padding: 5px;text-align:left ">3 times</td>
+                </tr>
+
+
+                </table>
+        </div>
+       </div>
+
+
+
+        </div>
+      </div>
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    
      
-      <ul class="nav navbar-nav navbar-right">
-        <li>
- 
-        <a href="#"  ui-sref="doctorlist" style="color:#fff"> <span><img src="/assets/images/doctor.png" width="40"></span>Doctors</a></li>
-
-         <li><a href="#"  ui-sref="nurselist" style="color:#fff"> <span><img src="/assets/images/nurse.png" width="40"></span>Nurses</a></li>
-         <li><a href="#" style="color:#fff" ui-sref="patientlist"> <span><img src="/assets/images/patient.png" width="40"></span>PatientList</a></li>
-         
-     <!--    <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li> -->
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+  </div>
 
 
- 
+  <div class="row" style="margin-top: 0px">
+    <div class="col-xs-12 col-sm-8 col-md-12 col-lg-8 col-lg-offset-2">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Vital</h3>
+          <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+        </div>
+        <div class="panel-body">
+
+
+        <div class="col-lg-6">
+
+                <div class="form-group">
+                  <input type="date" name="text" style="" id="pres_med" ng-model="patient.prescriptions.medicinename"  class="form-control input-sm" placeholder="Medicine Name">
+                </div>
+                 <div class="form-group">
+                  <input type="date" name="text" id="pres_dosage" ng-model="patient.prescriptions.dosage"  class="form-control input-sm" placeholder="Dosage">
+                </div>
+
+              <div class="form-group">
+                 <input type="date" name="text" id="pres_duration" ng-model="patient.prescriptions.duration"  class="form-control input-sm" placeholder="Duration">
+                </div>
+       </div>
+  
+       <div class="col-lg-6">
+                <table  border="1" style="border:1px; " cellspacing="10">
+                <tr><th style="padding: 10px">Medicine Name</th><th style="padding: 10px">Dosage</th><th style="padding: 10px">Duration</th></tr>
+                <tr><td style="padding: 5px;text-align: left;"> test</td>
+                <td style="padding: 5px;text-align: left;">2 days</td>
+                <td style="padding: 5px;text-align:left ">3 times</td>
+                </tr>
+
+                 <tr><td style="padding: 5px;text-align: left;"> test</td>
+                <td style="padding: 5px;text-align: left;">2 days</td>
+                <td style="padding: 5px;text-align:left ">3 times</td>
+                </tr>
+
+
+                </table>
+        </div>
+
+
+        </div>
+      </div>
+    </div>
+     
+  </div>
 
 
 
+  <div class="row" style="margin-top: 0px">
+    <div class="col-xs-12 col-sm-8 col-md-12 col-lg-8 col-lg-offset-2">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Test</h3>
+          <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+        </div>
+        <div class="panel-body">Panel content</div>
+      </div>
+    </div>
+     
+  </div>
+
+
+  <div class="row" style="margin-top: 0px">
+    <div class="col-xs-12 col-sm-8 col-md-12 col-lg-8 col-lg-offset-2">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Notes</h3>
+          <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+        </div>
+        <div class="panel-body">Panel content</div>
+      </div>
+    </div>
+     
+  </div>
+
+<script  src="/src/patientdetail.js" ></script>
+<!-- 
  <div class="col-lg-6 col-lg-offset-3">
 	<div class="panel panel-default">
 	  <div class="panel-body" style="padding: 0px">
@@ -72,3 +157,4 @@
 	  </div>
 	</div>
  </div>
+ -->

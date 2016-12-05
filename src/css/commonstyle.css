@@ -38,6 +38,7 @@ ul.dropdown-menu {
   padding : 5px 15px;
 }
 
+ 
 
 .tags {
    margin-bottom: 5px;
@@ -54,7 +55,14 @@ ul.dropdown-menu {
    margin-left: 5px;
 }
  
- 
+ .clickable{
+    cursor: pointer;   
+}
+
+.panel-heading span {
+  margin-top: -20px;
+  font-size: 15px;
+}
 
 
 
