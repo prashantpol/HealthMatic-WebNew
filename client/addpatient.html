@@ -1,6 +1,6 @@
  <br>
  
-<div class="row centered-form" style="margin-left: 20px">
+<div class="row centered-form" style="">
    <div class="col-xs-12 col-sm-8 col-md-12 col-lg-6 col-lg-offset-3">
       <div class="panel panel-default">
          <div class="panel-heading">
@@ -11,7 +11,7 @@
                <div class="row">
                   <div class="col-xs-6 col-sm-6 col-md-6">
                      <div class="form-group">
-                        <input type="text" name="first_name" id="first_name" ng-model="patient.firstName" class="form-control input-sm" placeholder="First Name">
+                        <input type="text" name="first_name" id="first_name" ng-model="patient.firstName" class="form-control input-sm required" placeholder="First Name" required>
                      </div>
                   </div>
                   <div class="col-xs-6 col-sm-6 col-md-6">
@@ -19,21 +19,28 @@
                         <input type="text" name="last_name" id="last_name" ng-model="patient.lastName"  class="form-control input-sm" placeholder="Last Name">
                      </div>
                   </div>
-               </div>
-               <div class="row">
                   <div class="col-xs-6 col-sm-6 col-md-6">
                      <div class="form-group">
-                        <input type="text" name="marital" id="marital" class="form-control input-sm" ng-model="patient.maritalStatus"  placeholder="Marital Status">
+                      <!--   <input type="text" name="marital" id="marital" class="form-control input-sm" ng-model="patient.maritalStatus"  placeholder="Marital Status"> -->
+                        <select class="selectpicker form-control" ng-model="patient.maritalStatus">
+                          <option>Single</option>
+                          <option>Married</option>
+                         </select>
+
                      </div>
                   </div>
                   <div class="col-xs-6 col-sm-6 col-md-6">
                      <div class="form-group">
-                        <input type="text" name="gender" id="gender" ng-model="patient.gender"   class="form-control input-sm" placeholder="Gender">
+                        <!-- <input type="text" name="gender" id="gender" ng-model="patient.gender"   class="form-control input-sm" placeholder="Gender">
+ -->
+                         <select class="selectpicker form-control"  ng-model="patient.gender">
+                          <option>Male</option>
+                          <option>Female</option>
+                         </select>
+
                      </div>
-                  </div>
-               </div>
-               <div class="row">
-                  <div class="col-xs-6 col-sm-6 col-md-6">
+                     </div>
+                   <div class="col-xs-6 col-sm-6 col-md-6">
                      <div class="form-group">
                         <input type="text" name="dob" id="dob"  ng-model="patient.birthday"   class="form-control input-sm" placeholder="Date of Birth">
                      </div>
@@ -43,74 +50,71 @@
                         <input type="text" name="occupation" id="occupation" ng-model="patient.occupation" class="form-control input-sm" placeholder="Occupation">
                      </div>
                   </div>
-               </div>
-               <div class="row">
                   <div class="col-xs-6 col-sm-6 col-md-6">
                      <div class="form-group">
-                        <input type="text" name="emergencyphone" id="emergencyphone"  ng-model="patient.contact.emergencyContactNumber"  class="form-control input-sm" placeholder="emergencyphone">
+                        <input type="number" name="emergencyphone" id="emergencyphone"  ng-model="patient.contact.emergencyContactNumber"  class="form-control input-sm" placeholder="emergencyphone">
                      </div>
                   </div>
                   <div class="col-xs-6 col-sm-6 col-md-6">
                      <div class="form-group">
-                        <input type="text" name="emergencycontact" ng-model="patient.contact.emergencyContactName"  id="emergencycontact" class="form-control input-sm" placeholder="Emergecy Contact">
+                        <input type="text" name="emergencycontact" ng-model="patient.contact.emergencyContactName"  id="emergencycontact" class="form-control input-sm" placeholder="Emergecy Contact Name">
                      </div>
                   </div>
-               </div>
-               <div class="row">
                   <div class="col-xs-12 col-sm-12 col-md-12">
                      <div class="form-group">
                         <input type="text"  class="form-control input-sm" ng-model="patient.address"  g-places-autocomplete ng-model="myScopeVar" />
                      </div>
                   </div>
-               </div>
                <hr>
-               <div class="row">
                   <div class="col-xs-6 col-sm-6 col-md-6">
                      <div class="form-group">
                         <input type="text" name="roomno" id="height" ng-model="patient.room" class="form-control input-sm" placeholder="Room No">
                      </div>
                   </div>
-               </div>
-               <div class="row">
                   <div class="col-xs-6 col-sm-6 col-md-6">
                      <div class="form-group">
-                        <input type="text" name="height" id="height" ng-model="patient.height" class="form-control input-sm" placeholder="Height">
+                        <input type="number" name="height" id="height" ng-model="patient.height" class="form-control input-sm" placeholder="Height">
                      </div>
                   </div>
                   <div class="col-xs-6 col-sm-6 col-md-6">
                      <div class="form-group">
-                        <input type="text" name="weight" id="weight" ng-model="patient.weight" class="form-control input-sm" placeholder="Weight">
+                        <input type="number" name="weight" id="weight" ng-model="patient.weight" class="form-control input-sm" placeholder="Weight">
                      </div>
                   </div>
-               </div>
-               <div class="row">
                   <div class="col-xs-6 col-sm-6 col-md-6">
                      <div class="form-group"> 
                         <input type="text" name="bloodtype" id="bloodtype" ng-model="patient.bloodType" class="form-control input-sm" placeholder="Blood Type">
                      </div>
                   </div>
+
                   <div class="col-xs-6 col-sm-6 col-md-6">
                      <div class="form-group">
                         <input type="text" name="condition" id="condition" ng-model="patient.condition" class="form-control input-sm" placeholder="Conditon">
                      </div>
                   </div>
-               </div>
+                      <div class="col-xs-6 col-sm-6 col-md-6">
+                     <div class="form-group">
+                        <input type="date" name="admissiondate" id="admissiondate" ng-model="patient.admissionDate" class="form-control input-sm" placeholder="Admission Date">
+                     </div>
+                  </div>
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                     <div class="form-group">
+                        <input type="date" name="dischargedate" ng-model="patient.dischargedDate" id="dischargedate" class="form-control input-sm" placeholder="Discharge Date">
+                     </div>
+                  </div>
                <div class="row">
-                  <div class="col-xs-6 col-sm-6 col-md-6">
-                     <div class="form-group">
-                        <input type="text" name="admissiondate" id="admissiondate" ng-model="patient.admissionDate" class="form-control input-sm" placeholder="Admission Date">
-                     </div>
-                  </div>
-                  <div class="col-xs-6 col-sm-6 col-md-6">
-                     <div class="form-group">
-                        <input type="text" name="dischargedate" ng-model="patient.dischargedDate" id="dischargedate" class="form-control input-sm" placeholder="Discharge Date">
-                     </div>
-                  </div>
+              
                </div>
+               <br>
+               </div>
+       <div class="" style="margin-top: 10px">
+                <input type="button" class="btn btn-success col-lg-3 col-xs-12 col-md-4 col-sm-4 pull-right" ng-click="addPatient(patient)" value="Next">
+                </div>
          </div>
+   
          </form>
       </div>
-         <input type="button" class="btn btn-success col-lg-3 col-xs-12 col-md-4 col-sm-4 pull-right" ng-click="addPatient(patient)" value="Next">
+        
 
    </div>
 </div>

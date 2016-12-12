@@ -1,42 +1,4 @@
-<!-- <html ng-app="webapp">
-<head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<link rel="stylesheet" type="text/css" href="/src/css/login.css">
-<link rel="stylesheet" type="text/css" href="/src/css/commonstyle.css">
-<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="/bower_components/angular-google-places-autocomplete/src/autocomplete.css">
-<link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
-</head>
-<body ng-controller="webctrl">
  
- 
- 
-<div ui-view class=""></div>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
-<script  src="/bower_components/angular/angular.min.js"></script>
-<script  src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script>
-   <script  src="/bower_components/angular-animate/angular-animate.min.js"></script>
-<script  src="/src/app.js"></script>
-<script  src="/src/route.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
- 
-<script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
-<script src="/bower_components/angular-google-places-autocomplete/src/autocomplete.js"></script>
-
-
-</body>
-
-</html> -->
  
 <html lang="en" ng-app="webapp">
 
@@ -49,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Round About - Start Bootstrap Template</title>
+    <title>Health Matic</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="/src/css/bootstrap.min.css" rel="stylesheet">
@@ -64,7 +26,12 @@
 <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
 
 <link rel="stylesheet" href="/bower_components/angular-google-places-autocomplete/src/autocomplete.css">
-<link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
+  <link rel="stylesheet" href="/src/buttons.css">
+ 
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -73,12 +40,41 @@
 
 </head>
 
-<body ng-controller="webctrl">
+<body ng-controller="webctrl"  >
+
+    <nav class="navbar navbar-default navbar-fixed-top" style="background-color:#fff">
+
+        <div class="container-fluid">
+            <div class="navbar-header" style="background-color:#fff">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-topmenu" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand logohide" ng-click="goHome()" style="margin-top:-10px">
+                    <!--<img alt="Brand" src="https://s3-us-west-2.amazonaws.com/bigrunner/assets/grlogo_sm.png" width="140">-->
+                    <img alt="Brand" src="/assets/images/healthlogo.png" width="160">
+                </a>
+            </div>
+            <div id="navbarResponsive" class="navbar-collapse collapse navbar-collapse-topmenu menu-nav" style="background-color:#fff">
+                <ul class="nav navbar-nav navbar-right">
+                     
+                     <li>
+               <a href="#"  ui-sref="doctorlist" style="color:#000"> <span><img src="/assets/images/doctor.png" width="40"></span>Doctors</a>
+            </li>
+            <li><a href="#"  ui-sref="nurselist" style="color:#000"> <span><img src="/assets/images/nurse.png" width="40"></span>Nurses</a></li>
+            <li><a href="#" style="color:#000" ui-sref="patientlist"> <span><img src="/assets/images/patient.png" width="40"></span>Patient</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
 
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<!--     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
@@ -88,8 +84,7 @@
                 </button>
                 <a class="navbar-brand" href="#">HealthMatic</a>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1 ">
                 
                  <ul class="nav navbar-nav">
                    <li>
@@ -99,10 +94,28 @@
             <li><a href="#" style="color:#fff" ui-sref="patientlist"> <span><img src="/assets/images/patient.png" width="40"></span>PatientList</a></li>
                 </ul>
             </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
+         </div>
+     </nav> -->
+
+
+<!-- 
+     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-if="view==='mobile'">
+        <div class="container">
+             <div class="navbar-header" style="padding-top: 15px;padding-left: 20px">
+            <a href="" ng-click="moveBack()">
+ <table style="color: #fff;" ><tr><td>
+ <span class="glyphicon glyphicon-arrow-left" style="color: #fff"></span></td>
+ <td style="padding-left: 10px">HealthMatic</td></tr></table>
+ </a>
+             </div>
+             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                
+         
+            </div>
+         </div>
+     </nav>
+ -->
+
 
     <!-- Page Content -->
     <div class="container">
@@ -126,8 +139,11 @@
   
 <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
 <script src="/bower_components/angular-google-places-autocomplete/src/autocomplete.js"></script>
+<script src="/bower_components/angular-cookies/angular-cookies.js"></script>
 
- 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>   
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+       
     <!-- jQuery -->
  
     <!-- Bootstrap Core JavaScript -->

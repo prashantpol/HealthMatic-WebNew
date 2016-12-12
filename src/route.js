@@ -41,6 +41,10 @@ angular.module('webapp')
 		url:'/assignstaff',
 		templateUrl:'/client/assignstaff.html'
 
+	}).state('landingpage',{
+		url:'/landingpage',
+		templateUrl:'/client/landingpage.html'
+
 	});
 
 }]);
