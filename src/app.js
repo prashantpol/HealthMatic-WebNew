@@ -4,7 +4,7 @@
   $scope.patientClass = '';
   $scope.patientinfo='';
   $scope.show=true;
-
+$scope.postsuccess=false;
   if($rootScope.patient)
   {
   $scope.selectedpatient=$rootScope.patient;
@@ -30,6 +30,13 @@
 
   var mobileView = 500;
 
+$scope.getColor=function (patient) {
+  if(patient.condition==='Critical')
+  {
+    return 'changered';
+  }
+
+};
   $scope.getWidth = function() {
   return window.innerWidth;
   };
@@ -71,19 +78,16 @@
    {
     if(user.email==='admin' && user.pwd==='admin')
     {
-  $cookieStore.put('loggedin','true');
-
+ 
       $state.go('patientlist');
     }
     else if(user.email==='doctor' && user.pwd==='doctor')
     {
-  $cookieStore.put('loggedin','true');
       $state.go('patientlist');
     }
-    else if(user.email==='doctor' && user.pwd==='doctor')
+    else if(user.email==='nurse' && user.pwd==='nurse')
     {
-  $cookieStore.put('loggedin','true');
-
+ 
       $state.go('patientlist');
     }
     else
@@ -166,71 +170,78 @@
 
   $scope.addPatient=function (patient) {
    // alert();
-   $scope.patientinfo=patient;
-   var gender='';
-   if(patient.gender==='male')
-   {
-    gender=true;
-  }
-  else
-  {
-    gender=false;
-  }
+             $scope.patientinfo=patient;
+             var gender='';
+             if(patient.gender==='male')
+             {
+              gender=true;
+            }
+            else
+            {
+              gender=false;
+            }
 
-  var address=patient.address;
-  //  alert(address.address_components[0].long_name);
-  console.log(patient.address);
+            var address=patient.address;
+            //  alert(address.address_components[0].long_name);
+            console.log(patient.address);
 
-  var patientschema={
-  'firstName': patient.firstName,
-  'lastName': patient.lastName,
-  'birthday': patient.birthday,
-  'gender': gender,
-  'weight': patient.weight,
-  'height': patient.height,
-  'occupation': patient.occupation,
-  'bloodType': patient.bloodType,
-  'maritalStatus': gender,
-  'condition': patient.condition,
-  'admissionDate': '2016-11-25',
-  'room':patient.room,
-  '__v': 0,
-  'nurses': [],
-  'doctors': [],
-  'vitals': [],
-  'prescriptions': [],
-  'labTests': [],
-  'drNotes': [],
-  'allergies': [],
-  'insurance': {
-    'name': 'r',
-    'expiryDate': '5'
-  },
-  'contact': {
-    'phone': patient.contact.phone,
-    'email': 'ddd',
-    'emergencyContactName': patient.contact.emergencyContactName,
-    'emergencyContactNumber': patient.contact.phone
-  },
-  'address': {
-    'street': address.address_components[0].long_name + address.address_components[1].long_name,
-    'city': address.address_components[4].long_name,
-    'province': address.address_components[6].long_name,
-    'zipCode': address.address_components[8].long_name
-  }
-  }
-  console.log('<<<<'+patient)
+            var patientschema={
+            'firstName': patient.firstName,
+            'lastName': patient.lastName,
+            'birthday': patient.birthday,
+            'gender': gender,
+            'weight': patient.weight,
+            'height': patient.height,
+            'occupation': patient.occupation,
+            'bloodType': patient.bloodType,
+            'maritalStatus': gender,
+            'condition': patient.condition,
+            'admissionDate': '2016-11-25',
+            'room':patient.room,
+            '__v': 0,
+            'nurses': [],
+            'doctors': [],
+            'vitals': [],
+            'prescriptions': [],
+            'labTests': [],
+            'drNotes': [],
+            'allergies': [],
+            'insurance': {
+              'name': 'r',
+              'expiryDate': '5'
+            },
+            'contact': {
+              'phone': patient.contact.phone,
+              'email': 'ddd',
+              'emergencyContactName': patient.contact.emergencyContactName,
+              'emergencyContactNumber': patient.contact.phone
+            },
+            'address': {
+              'street': address.address_components[0].long_name + address.address_components[1].long_name,
+              'city': address.address_components[4].long_name,
+              'province': address.address_components[6].long_name,
+              'zipCode': address.address_components[8].long_name
+            }
+            }
+            console.log('<<<<'+patient)
 
-  $http.post('http://shelalainechan.com/patients', patientschema).success(function(response) {
-  console.log('<<<<<<<'+response);
+            // $http.post('http://shelalainechan.com/patients', patientschema).success(function(response) {
+            // console.log('<<<<<<<'+response);
 
-  //$state.go('assignstaff');
+            // $scope.postsuccess=true;
+            // $state.go('patientdetails');
 
-  }).error(function(response) {
+            // }).error(function(response) {
 
-  });
+            // });
 
+              $http.post('http://shelalainechan.com/patients', patientschema).success(function(data, status) {
+                      $scope.postsuccess=true;
+                      $state.go('patientdetails');
+                  });
   };
+
+
 
   $scope.goAddMedcine=function(data)
   {

@@ -24,7 +24,9 @@ ul.dropdown-menu {
   background:#000
 }
 
-
+.changered{
+  color: #ff0000;
+}
 .circleBase {
     border-radius: 50%;
     behavior: url(PIE.htc); /* remove if you don't care about IE8 */

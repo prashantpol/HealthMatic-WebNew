@@ -13,7 +13,7 @@
     <a href=""  ng-click="goPatientDetails(patient)">
 {{patient.firstName}}&nbsp {{patient.lastName}}</a></td>
     </tr>
-    <tr><td class="secondline">{{patient.condition}}</td></tr>
+    <tr><td class="secondline" ng-class="getColor(patient)">{{patient.condition}}</td></tr>
 
     </table>
     </li>

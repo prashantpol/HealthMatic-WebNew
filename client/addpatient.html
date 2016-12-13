@@ -89,7 +89,12 @@
 
                   <div class="col-xs-6 col-sm-6 col-md-6">
                      <div class="form-group">
-                        <input type="text" name="condition" id="condition" ng-model="patient.condition" class="form-control input-sm" placeholder="Conditon">
+                      
+                         <select class="selectpicker form-control"  ng-model="patient.condition" placeholder="Condition">
+                          <option>Normal</option>
+                          <option>Critical</option>
+                         </select>
+
                      </div>
                   </div>
                       <div class="col-xs-6 col-sm-6 col-md-6">
