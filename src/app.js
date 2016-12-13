@@ -19,14 +19,7 @@
   $state.go(path);
   };
   //$window.sessionStorage.isLogin=false;
-  //alert($window.sessionStorage.isLogin);
- // alert($cookieStore.get('loggedin'));
-  // if($cookieStore.get('loggedin'))
-  // {  
   
-  // $state.go('patientlist');
-  // }
-
   if($rootScope.patientList)
   {
 
