@@ -235,10 +235,31 @@ $scope.getColor=function (patient) {
 
             // });
 
-              $http.post('http://shelalainechan.com/patients', patientschema).success(function(data, status) {
-                      $scope.postsuccess=true;
-                      $state.go('patientdetails');
-                  });
+            // Simple GET request example:
+            $http({
+              method: 'POST',
+              url: 'http://shelalainechan.com/patients',
+              data:patientschema
+            }).then(function successCallback(response) {
+              console.log('Success >> '+response)
+              $scope.postsuccess=true;
+             $state.go('patientdetails');
+               console.log($scope.postsuccess);
+                // this callback will be called asynchronously
+                // when the response is available
+              }, function errorCallback(response) {
+               console.log('ERROR >> '+response)
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+              });
+              // $http.post('http://shelalainechan.com/patients', patientschema).success(function(data, status) {
+              //         $scope.postsuccess=true;
+              //         $state.go('patientdetails');
+              //     });
+
+              //     $http.post('http://shelalainechan.com/patients', patientschema, config).then(successCallback, errorCallback);
+            
+
   };
 
 
