@@ -1,11 +1,13 @@
   angular.module('webapp',['ui.router','ngAnimate','google.places','ngCookies'])
-  .controller('webctrl',function($scope,$state,$http,$rootScope,$window,$cookieStore  ){
+  .controller('webctrl',function($scope,$state,$http,$rootScope,$window,$cookieStore ){
   //animation 
   $scope.patientClass = '';
   $scope.patientinfo='';
   $scope.show=true;
 $scope.postsuccess=false;
-  if($rootScope.patient)
+    $scope.currState = $state;
+    //alert($window.sessionStorage.pat);
+  if($window.sessionStorage.pat)
   {
   $scope.selectedpatient=$rootScope.patient;
   }
@@ -19,13 +21,9 @@ $scope.postsuccess=false;
   $state.go(path);
   };
   //$window.sessionStorage.isLogin=false;
+ // alert($scope.currState.name);
+   
   
-  if($rootScope.patientList)
-  {
-
-    console.log($rootScope.patientList);
-    $scope.patientList=$rootScope.patientList;
-  }
   //alert($state.current.name);
 
   var mobileView = 500;
@@ -113,16 +111,17 @@ $scope.getColor=function (patient) {
     url : "http://ec2-52-87-238-75.compute-1.amazonaws.com/patients"
   }).then(function mySucces(response) {
     $scope.patientList = response.data;
+
        // console.log($scope.patientList);
      }, function myError(response) {
        console.log(response);
      });
 
   };
-  if(!$scope.patientList)
-  {
-  $scope.loadPatient();
-  }
+  // if(!$scope.patientList)
+  // {
+  // $scope.loadPatient();
+  // }
   //$scope.show=$state.current.name;
 
   $scope.loadDoctors=function () {
@@ -243,9 +242,12 @@ $scope.getColor=function (patient) {
               data:patientschema
             }).then(function successCallback(response) {
               console.log('Success >> '+response)
+                                 $scope.loadPatient();
+
               $scope.postsuccess=true;
-             $state.go('patientdetails');
+             $state.go('patientlist');
                console.log($scope.postsuccess);
+            $scope.currState = 'patientlist';
                 // this callback will be called asynchronously
                 // when the response is available
               }, function errorCallback(response) {
@@ -270,16 +272,16 @@ $scope.getColor=function (patient) {
   //alert();
 
 
-  $http({
-    method : "GET",
-    url : "http://ec2-52-87-238-75.compute-1.amazonaws.com/patients/"+data._id
-  }).then(function mySucces(response) {
-    $scope.patientList = response.data;
-       // console.log($scope.patientList);
-     }, function myError(response) {
-      console.log(response);
-    });
-  console.log(data);
+  // $http({
+  //   method : "GET",
+  //   url : "http://ec2-52-87-238-75.compute-1.amazonaws.com/patients/"+data._id
+  // }).then(function mySucces(response) {
+  //   $scope.patientList = response.data;
+  //      // console.log($scope.patientList);
+  //    }, function myError(response) {
+  //     console.log(response);
+  //   });
+  // console.log(data);
 
   $scope.patientList.prescriptions=[];
   $scope.patientList.prescriptions=data.prescriptions
@@ -295,10 +297,34 @@ $scope.getColor=function (patient) {
   });
 
 
+          // $http({
+          //     method: 'POST',
+          //     url: 'http://shelalainechan.com/patients',
+          //     data:patientschema
+          //   }).then(function successCallback(response) {
+          //     console.log('Success >> '+response)
+          //                        $scope.loadPatient();
+
+          //     $scope.postsuccess=true;
+          //    $state.go('patientlist');
+          //      console.log($scope.postsuccess);
+          //   $scope.currState = 'patientlist';
+          //       // this callback will be called asynchronously
+          //       // when the response is available
+          //     }, function errorCallback(response) {
+          //      console.log('ERROR >> '+response)
+          //       // called asynchronously if an error occurs
+          //       // or server returns response with an error status.
+          //     });
+
+
   $http.put('http://shelalainechan.com/patients/' + data._id,{
     prescriptions:$scope.patientList.prescriptions
-  }).success(function (response) {
-    $scope.patientList=response;
+  }).then(function successCallback(response) {
+   // $scope.patientList=response.data;
+ //  $scope.loadPatient();
+      $scope.patient=response.data;
+      $scope.patientList=response.data;
     //console.log(response);
 
   });
@@ -311,16 +337,16 @@ $scope.getColor=function (patient) {
   //alert();
 
 
-  $http({
-    method : "GET",
-    url : "http://ec2-52-87-238-75.compute-1.amazonaws.com/patients/"+data._id
-  }).then(function mySucces(response) {
-    $scope.patientList = response.data;
-           // console.log($scope.patientList);
-         }, function myError(response) {
-          console.log(response);
-        });
-  console.log(data);
+  // $http({
+  //   method : "GET",
+  //   url : "http://ec2-52-87-238-75.compute-1.amazonaws.com/patients/"+data._id
+  // }).then(function mySucces(response) {
+  //   $scope.patientList = response.data;
+  //          // console.log($scope.patientList);
+  //        }, function myError(response) {
+  //         console.log(response);
+  //       });
+  // console.log(data);
 
   $scope.patientList.drNotes=[];
   $scope.patientList.drNotes=data.drNotes
@@ -334,11 +360,16 @@ $scope.getColor=function (patient) {
 
   $http.put('http://shelalainechan.com/patients/' + data._id,{
     drNotes:$scope.patientList.drNotes
-  }).success(function (response) {
-    $scope.patientList=response;
-        //console.log(response);
+  }).then(function successCallback (response) {
+   // $scope.patientList=response.data;
+      //$scope.loadPatient();
 
-      });
+     $scope.patient=response.data;
+           $scope.patientList=response.data;
+
+        //console.log(response);
+ 
+   });
 
 
   };
@@ -348,16 +379,16 @@ $scope.getColor=function (patient) {
   //alert();
 
 
-  $http({
-    method : "GET",
-    url : "http://ec2-52-87-238-75.compute-1.amazonaws.com/patients/"+data._id
-  }).then(function mySucces(response) {
-    $scope.patientList = response.data;
-           // console.log($scope.patientList);
-         }, function myError(response) {
-          console.log(response);
-        });
-  console.log(data);
+  // $http({
+  //   method : "GET",
+  //   url : "http://ec2-52-87-238-75.compute-1.amazonaws.com/patients/"+data._id
+  // }).then(function mySucces(response) {
+  //   $scope.patientList = response.data;
+  //          // console.log($scope.patientList);
+  //        }, function myError(response) {
+  //         console.log(response);
+  //       });
+  // console.log(data);
 
   $scope.patientList.doctors=[];
   $scope.patientList.doctors=data.doctors
@@ -371,9 +402,14 @@ $scope.getColor=function (patient) {
 
   $http.put('http://shelalainechan.com/patients/' + data._id,{
     doctors:$scope.patientList.doctors
-  }).success(function (response) {
-    $scope.patientList=response;
+  }).then (function successCallback (response) {
+   // $scope.patientList=response.data;
         //console.log(response);
+        //   $scope.loadPatient();
+
+          $scope.patient=response.data;
+                $scope.patientList=response.data;
+
 
       });
 
@@ -385,16 +421,17 @@ $scope.getColor=function (patient) {
   //alert();
 
 
-  $http({
-    method : "GET",
-    url : "http://ec2-52-87-238-75.compute-1.amazonaws.com/patients/"+data._id
-  }).then(function mySucces(response) {
-    $scope.patientList = response.data;
-           // console.log($scope.patientList);
-         }, function myError(response) {
-          console.log(response);
-        });
-  console.log(data);
+  // $http({
+  //   method : "GET",
+  //   url : "http://ec2-52-87-238-75.compute-1.amazonaws.com/patients/"+data._id
+  // }).then(function mySucces(response) {
+  //   $scope.patientList = response.data;
+
+  //          // console.log($scope.patientList);
+  //        }, function myError(response) {
+  //         console.log(response);
+  //       });
+  // console.log(data);
 
   $scope.patientList.labTests=[];
   $scope.patientList.labTests=data.labTests
@@ -409,8 +446,13 @@ $scope.getColor=function (patient) {
 
   $http.put('http://shelalainechan.com/patients/' + data._id,{
     labTests:$scope.patientList.labTests
-  }).success(function (response) {
-    $scope.patientList=response;
+  }).then(function successCallback(response) {
+  //  $scope.patientList=response.data;
+     //$scope.loadPatient();
+
+      $scope.patient=response.data;
+            $scope.patientList=response.data;
+
         //console.log(response);
 
       });
@@ -424,16 +466,16 @@ $scope.getColor=function (patient) {
   //alert();
 
 
-  $http({
-    method : "GET",
-    url : "http://ec2-52-87-238-75.compute-1.amazonaws.com/patients/"+data._id
-  }).then(function mySucces(response) {
-    $scope.patientList = response.data;
-           // console.log($scope.patientList);
-         }, function myError(response) {
-          console.log(response);
-        });
-  console.log(data);
+  // $http({
+  //   method : "GET",
+  //   url : "http://ec2-52-87-238-75.compute-1.amazonaws.com/patients/"+data._id
+  // }).then(function mySucces(response) {
+  //   $scope.patientList = response.data;
+  //          // console.log($scope.patientList);
+  //        }, function myError(response) {
+  //         console.log(response);
+  //       });
+  // console.log(data);
 
   $scope.patientList.vitals=[];
   $scope.patientList.vitals=data.vitals
@@ -452,9 +494,14 @@ $scope.getColor=function (patient) {
 
   $http.put('http://shelalainechan.com/patients/' + data._id,{
     vitals:$scope.patientList.vitals
-  }).success(function (response) {
-    $scope.patientList=response;
-        //console.log(response);
+  }).then(function successCallback (response) {
+   // $scope.patientList=response.data;
+      //$scope.loadPatient();
+
+      $scope.patient=response.data;
+            $scope.patientList=response.data;
+
+        console.log(response);
 
       });
 
@@ -478,6 +525,7 @@ $scope.getColor=function (patient) {
   $scope.goPatientDetails=function(patient){
   //animation 
   //$scope.patientClass = 'patient-home';
+              $scope.postsuccess=false;
 
 
 if(patient){
@@ -489,6 +537,8 @@ if(patient){
           url : "http://ec2-52-87-238-75.compute-1.amazonaws.com/patients/"+patient._id
           }).then(function mySucces(response) {
           $scope.patientList = response.data;
+          $cookieStore.put('pat',response.data);
+          $window.sessionStorage.pat=response.data;
           $rootScope.patientList=$scope.patientList;
                // console.log($scope.patientList);
              }, function myError(response) {
@@ -496,9 +546,15 @@ if(patient){
             });
 
           $rootScope.patient=patient;
+          console.log($rootScope.patient);
+          console.log('>>>');
+
+        
+
           $scope.selectedpatient=$rootScope.patient;
           if($rootScope.patient)
           {
+
           $state.go('patientdetails');
           }
 }
