@@ -235,10 +235,23 @@ $scope.getColor=function (patient) {
 
             // });
 
-              $http.post('http://shelalainechan.com/patients', patientschema).success(function(data, status) {
-                      $scope.postsuccess=true;
-                      $state.go('patientdetails');
-                  });
+            //   $http({
+            //     url: 'http://shelalainechan.com/patients',
+            //     method: "POST",
+            //     data: patientschema,
+            //     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            // }).success(function (data, status, headers, config) {
+            //         $scope.persons = data; // assign  $scope.persons here as promise is resolved here 
+            //     }).error(function (data, status, headers, config) {
+            //         $scope.status = status;
+            //     });
+
+            $http.post('http://shelalainechan.com/patients', patientschema).success(function(data, status) {
+                     $scope.postsuccess=true;
+                     $state.go('patientdetails');
+                 });
+
+            
   };
 
 
